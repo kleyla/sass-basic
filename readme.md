@@ -111,3 +111,21 @@ En SCSS remplazamos la clase padre por "&"
   }
 }
 ```
+Comentarios en SCSS:
+```SCSS
+    // una linea
+    /* multi
+     lineas */
+```
+## Variables
+```SCSS
+$color-rosa: #cc6699;
+```
+
+## Operaciones matematicas
+```SCSS
+$todo: 100%;
+$ventana: 30%;
+$box: $todo - $ventana;
+```
+
