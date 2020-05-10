@@ -129,3 +129,71 @@ $ventana: 30%;
 $box: $todo - $ventana;
 ```
 
+## Mixins
+En CSS hay redundancia en algunas lineas de codigo, mixin nos permite factorizar e incluir donde sea necesario.
+```CSS
+section > h1 {
+    margin: 0 0 20px 0;
+    font-family: Georgia;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+}
+section > h2 {
+    margin: 0 0 20px 0;
+    font-family: Georgia;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #666;
+}
+```
+A SCSS:
+```SCSS
+@mixin titulo{
+    margin: 0 0 20px 0;
+    font-family: Georgia;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+section > h1 {
+    @include titulo;
+    color: #333;
+}
+section > h2 {
+    @include titulo;
+    color: #666;
+}
+```
+Esto tambien nos permite enviar parametros, parametros por default:
+```SCSS
+@mixin titulo($fsize, $fweight: bold) {
+    margin: 0 0 20px 0;
+    font-family: Georgia;
+    font-size: $fsize;
+    font-weight: $fweight;
+    text-transform: uppercase;
+}
+section > h1 {
+    @include titulo(22px);
+    color: #333;
+}
+section > h2 {
+    @include titulo(18px, 600);
+    color: #666;
+}
+```
+
+```SCSS
+@mixin shadow($x, $y, $blur, $color) {
+    --webkit-box-shadow: $x $y $blur $color;
+    -moz-box-shadow: $x $y $blur $color;
+    box-shadow: $x $y $blur $color;
+}
+
+#caja1 {
+    @include shadow(1px, 2px, 5px, rgba(0,0,0,0.6) )
+}
+```
