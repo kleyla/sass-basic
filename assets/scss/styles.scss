@@ -250,3 +250,73 @@ footer {
     opacity: 0.8;
   }
 }
+
+// Ejemplos
+@mixin titulo($fsize, $fweight: bold) {
+  margin: 0 0 20px 0;
+  font-family: Georgia;
+  font-size: $fsize;
+  font-weight: $fweight;
+  text-transform: uppercase;
+}
+section > h1 {
+  @include titulo(22px);
+  color: #333;
+}
+section > h2 {
+  @include titulo(18px, 600);
+  color: #666;
+}
+$color-alerta: #67e24f;
+$color-error: #b23f24;
+$color-acceso: #46b6ea;
+
+@mixin sombras {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+@mixin bordes {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+.alerta {
+  padding: 15px;
+  font-size: 1.2rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 5px;
+  letter-spacing: 3px;
+  text-align: center;
+  color: #fff;
+  background: $color-alerta;
+  @include sombras();
+  @include bordes();
+}
+.error {
+  @extend .alerta;
+  background: $color-error;
+  font-size: 10px;
+}
+.acceso {
+  @extend .alerta;
+  @extend .error;
+  background: $color-acceso;
+}
+%button {
+  padding: 10px;
+  color: #fff;
+  background: blue;
+  border-radius: 6px;
+  display: inline-block;
+}
+.cancelar {
+  @extend %button;
+  background: $color-error;
+}
+.enviar {
+  @extend %button;
+  background: $color-acceso;
+}

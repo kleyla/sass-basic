@@ -1,6 +1,6 @@
 # SASS
-Instalar ruby
-Instalar sass con:
+<p>Instalar ruby.</p>
+<p>Instalar sass con:</p>
 ```bash
     gem install sass
 ```
@@ -195,5 +195,65 @@ section > h2 {
 
 #caja1 {
     @include shadow(1px, 2px, 5px, rgba(0,0,0,0.6) )
+}
+```
+## Extend
+```scss
+$color-alerta: #67e24f;
+$color-error: #b23f24;
+$color-acceso: #46b6ea;
+
+@mixin sombras {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+@mixin bordes {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+.alerta {
+  padding: 15px;
+  font-size: 1.2rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 5px;
+  letter-spacing: 3px;
+  text-align: center;
+  color: #fff;
+  background: $color-alerta;
+  @include sombras();
+  @include bordes();
+}
+.error {
+  @extend .alerta;
+  background: $color-error;
+  font-size: 10px;
+}
+.acceso {
+  @extend .alerta;
+  @extend .error;
+  background: $color-acceso;
+}
+```
+## Placehoder
+Estilos fantasma
+```scss
+%button {
+  padding: 10px;
+  color: #fff;
+  background: blue;
+  border-radius: 6px;
+  display: inline-block;
+}
+.cancelar {
+  @extend %button;
+  background: $color-error;
+}
+.enviar {
+  @extend %button;
+  background: $color-acceso;
 }
 ```
