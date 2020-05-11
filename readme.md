@@ -6,11 +6,15 @@
 ```
 En el folder assets tener un folder para css y otro para scss
 
+Este comando vigilara los cambios que vamos haciendo en la hoja sass y genera el archivo css.
 ```bash
     cd assets/
     sass --watch scss/archivo.scss:css/archivo.css
 ```
-Este comando vigilara los cambios que vamos haciendo en la hoja sass y genera el archivo css.
+Este comando escucha todos los cambios de la carpeta scss y los compila a css. Estaria escuchando los cambios que se harian en _variables.scss por ejemplo.
+```bash
+    sass --watch scss:css
+```
 
 ## Anidacion de codigo
 Codigo en css:
@@ -260,8 +264,30 @@ Estilos fantasma
 ## Partials
 Archivos .scss que son incluidos en el .scss principal. Deben ser llamados _nombre.scss.
 <p>Por lo general existen estos archivos: _reset.scss _mixin.scss _variables.scss</p>
+
 ```scss
-@import "reset";
-@import "mixins";
-@import "variables";
+    @import "reset";
+    @import "mixins";
+    @import "variables";
+```
+## Media Queries
+```scss
+.cancelar {
+  @extend %button;
+  background: $color-error;
+
+ @media (max-width: 900px) {
+    background: $color-acceso;
+  }
+}
+
+$smartphone: "(max-width: 480px)";
+.enviar {
+  @extend %button;
+  background: $color-acceso;
+
+  @media #{$smartphone} {
+    background: $color-error;
+  }
+}
 ```

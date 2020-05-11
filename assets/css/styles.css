@@ -436,9 +436,19 @@ section > h2 {
 .cancelar {
   background: #b23f24;
 }
+@media (max-width: 900px) {
+  .cancelar {
+    background: #46b6ea;
+  }
+}
 
 .enviar {
   background: #46b6ea;
+}
+@media (max-width: 480px) {
+  .enviar {
+    background: #b23f24;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

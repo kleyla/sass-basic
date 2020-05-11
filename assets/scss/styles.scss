@@ -316,8 +316,17 @@ $color-acceso: #46b6ea;
 .cancelar {
   @extend %button;
   background: $color-error;
+  @media (max-width: 900px) {
+    background: $color-acceso;
+  }
 }
+
+$smartphone: "(max-width: 480px)";
 .enviar {
   @extend %button;
   background: $color-acceso;
+
+  @media #{$smartphone} {
+    background: $color-error;
+  }
 }
