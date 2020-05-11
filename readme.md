@@ -257,3 +257,11 @@ Estilos fantasma
   background: $color-acceso;
 }
 ```
+## Partials
+Archivos .scss que son incluidos en el .scss principal. Deben ser llamados _nombre.scss.
+<p>Por lo general existen estos archivos: _reset.scss _mixin.scss _variables.scss</p>
+```scss
+@import "reset";
+@import "mixins";
+@import "variables";
+```

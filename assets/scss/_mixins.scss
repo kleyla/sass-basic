@@ -1,0 +1,16 @@
+@mixin sombras-caja($x, $y, $blur, $color) {
+  --webkit-box-shadow: $x $y $blur $color;
+  -moz-box-shadow: $x $y $blur $color;
+  box-shadow: $x $y $blur $color;
+}
+@mixin columnas {
+  margin: 0 1.5%;
+  display: inline-block;
+  vertical-align: top;
+}
+@mixin tipografia($tamano: 1rem, $estilo: 300) {
+  font: {
+    size: $tamano;
+    weight: $estilo;
+  }
+}

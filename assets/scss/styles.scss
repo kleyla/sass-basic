@@ -1,5 +1,6 @@
-// Variables
-$color-rosa: #cc6699;
+@import "reset";
+@import "mixins";
+@import "variables";
 
 * {
   -moz-box-sizing: border-box;
