@@ -1,9 +1,11 @@
 # SASS
 <p>Instalar ruby.</p>
 <p>Instalar sass con:</p>
+
 ```bash
     gem install sass
 ```
+
 En el folder assets tener un folder para css y otro para scss
 
 Este comando vigilara los cambios que vamos haciendo en la hoja sass y genera el archivo css.
